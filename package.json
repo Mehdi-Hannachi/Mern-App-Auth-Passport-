@@ -1,0 +1,13 @@
+{
+  "name": "auth-passport",
+  "version": "1.0.0",
+  "description": "Mern App using passport auth ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hannachi Mehdi",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {}
+}
