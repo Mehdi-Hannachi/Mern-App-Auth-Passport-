@@ -8,10 +8,10 @@ const app = express();
 //Parser
 app.use(express.json());
 
+connectDB();
+
 //Routes
 app.use(`/user`, user);
-
-connectDB();
 
 const PORT = process.env.PORT || 5000;
 

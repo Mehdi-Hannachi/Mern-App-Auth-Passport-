@@ -21,13 +21,21 @@ exports.register = async (req, res) => {
       password,
     });
 
+    const payload = {
+      name,
+      email,
+      phoneNumber,
+     };
+
     // hash Password with bcrypt
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(password, salt);
     newUser.password = hash;
 
+    const token = await jwt.sign(payload, secretOrKey);
+
     await newUser.save();
-    res.status(201).json(newUser);
+    res.status(201).json({ token: `Bearer ${token}`  , newUser},);
   } catch (error) {
     console.error(error);
     res.status(500).json({ errors: error });

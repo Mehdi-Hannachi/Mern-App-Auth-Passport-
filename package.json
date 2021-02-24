@@ -4,10 +4,16 @@
   "description": "Mern App using passport auth ",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently  \"  cd server && npm run dev \"    \" cd client && npm start  \"  "
   },
   "author": "Hannachi Mehdi",
   "license": "ISC",
-  "devDependencies": {},
-  "dependencies": {}
+  "devDependencies": {
+    "concurrently": "^6.0.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.6.0",
+    "react-bootstrap": "^1.5.0"
+  }
 }
