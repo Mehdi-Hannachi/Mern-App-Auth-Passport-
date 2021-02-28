@@ -67,6 +67,7 @@ const userReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         loading: false,
+        isAuth: true,
         user: payload,
       };
     case GET_PROFILE_FAIL:
