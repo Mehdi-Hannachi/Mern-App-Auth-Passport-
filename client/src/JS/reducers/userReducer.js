@@ -46,12 +46,14 @@ const userReducer = (state = initialState, { type, payload }) => {
     case LOGIN_SUCCESS:
       return {
         ...state,
+        isAuth: true,
         loading: false,
         token: payload,
       };
     case LOGIN_FAIL:
       return {
         ...state,
+        isAuth: false,
         loading: false,
         errors: payload,
       };

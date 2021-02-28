@@ -1,4 +1,4 @@
 {
-    "mongoURI": "mongodb://localhost:27017/contactsList",
+    "mongoURI": "mongodb+srv://mirak005:mirak005@dev-connector-exercice.qo19f.mongodb.net/auth-m-app?retryWrites=true&w=majority",
     "secretOrKey": "my secret"
 }
