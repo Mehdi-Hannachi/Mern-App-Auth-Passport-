@@ -1,6 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 const Profile = () => {
-  return <div>hello</div>;
+  return (
+    <div>
+      <p>profile</p>
+    </div>
+  );
 };
 export default Profile;

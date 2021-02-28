@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useHistory } from "react-router-dom";
+// import { Redirect, useHistory } from "react-router-dom";
 import { login } from "../JS/actions";
 
 const Login = () => {
   const dispatch = useDispatch();
-  const [token, setToken] = useState();
+  // const [token, setToken] = useState();
 
-  useEffect(() => {
-    setToken(localStorage.getItem("token"));
-  }, []);
+  // useEffect(() => {
+  //   setToken(localStorage.getItem("token"));
+  // }, []);
 
   const loading = useSelector((state) => state.userReducer.loading);
-  const history = useHistory();
+  // const history = useHistory();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
@@ -24,42 +24,50 @@ const Login = () => {
         password,
       })
     );
-    history.push("/profile");
+    // history.push("/profile");
   };
 
-  return token ? (
-    <Redirect to="/profile" />
-  ) : loading ? (
+  // token ? (
+  //   <Redirect to="/profile" />
+  // ) :
+
+  return loading ? (
     <h1>Please wait</h1>
   ) : (
-    <div className="container">
-      <div className="col-md-8 offset-md-2">
-        <div className="row">
-          <h1>Login</h1>
-        </div>
+    <div className="wrapper">
+      <div className="inner">
+        <form>
+          <h3>Login</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore.
+          </p>
 
-        <div className="row">
-          <input
-            type="text"
-            name="email"
-            placeholder="email"
-            className="form-control"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="text"
-            name="password"
-            placeholder="password"
-            className="form-control"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
+          <label className="form-group">
+            <input
+              type="text"
+              className="form-control"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <span>Your Mail</span>
+            <span className="border"></span>
+          </label>
 
-        <div className="row">
-          <button type="submit" className="btn btn-primary" onClick={loginUser}>
+          <label className="form-group">
+            <input
+              type="password"
+              className="form-control"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <span>Your Password</span>
+            <span className="border"></span>
+          </label>
+
+          <button onClick={loginUser}>
             Submit
+            <i className="zmdi zmdi-arrow-right"></i>
           </button>
-        </div>
+        </form>
       </div>
     </div>
   );
