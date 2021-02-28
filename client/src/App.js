@@ -29,6 +29,8 @@ const App = () => {
 
         <PrivateRoute exact path="/profile" component={Profile} />
       </Switch>
+
+      <Errors />
     </div>
   );
 };
