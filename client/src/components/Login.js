@@ -38,7 +38,7 @@ const Login = () => {
   }
 
   return loading ? (
-    <h1>Please wait</h1>
+    <h1 className="text-dark">Please wait.....</h1>
   ) : (
     <div className="wrapper">
       <div className="inner">
