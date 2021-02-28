@@ -13,7 +13,7 @@ const App = () => {
   const isAuth = useSelector((state) => state.userReducer.isAuth);
   // const user = useSelector((state) => state.userReducer.user);
 
-  console.log(isAuth);
+  console.log(isAuth, "APP COMPONENT");
 
   const dispatch = useDispatch();
 

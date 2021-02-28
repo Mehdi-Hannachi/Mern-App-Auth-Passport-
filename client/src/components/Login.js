@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Redirect } from "react-router-dom";
 // import { Redirect, useHistory } from "react-router-dom";
 import { login } from "../JS/actions";
 
 const Login = () => {
   const dispatch = useDispatch();
+  const isAuth = useSelector((state) => state.userReducer.isAuth);
+
   // const [token, setToken] = useState();
 
   // useEffect(() => {
@@ -30,13 +33,16 @@ const Login = () => {
   // token ? (
   //   <Redirect to="/profile" />
   // ) :
+  if (isAuth) {
+    return <Redirect to="/profile" />;
+  }
 
   return loading ? (
     <h1>Please wait</h1>
   ) : (
     <div className="wrapper">
       <div className="inner">
-        <form>
+        <form onSubmit={loginUser}>
           <h3>Login</h3>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -63,7 +69,7 @@ const Login = () => {
             <span className="border"></span>
           </label>
 
-          <button onClick={loginUser}>
+          <button>
             Submit
             <i className="zmdi zmdi-arrow-right"></i>
           </button>

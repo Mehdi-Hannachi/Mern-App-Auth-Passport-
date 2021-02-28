@@ -46,12 +46,14 @@ const userReducer = (state = initialState, { type, payload }) => {
     case LOGIN_SUCCESS:
       return {
         ...state,
+        isAuth: true,
         loading: false,
         token: payload,
       };
     case LOGIN_FAIL:
       return {
         ...state,
+        isAuth: false,
         loading: false,
         errors: payload,
       };
@@ -65,7 +67,6 @@ const userReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         loading: false,
-        isAuth: true,
         user: payload,
       };
     case GET_PROFILE_FAIL:
