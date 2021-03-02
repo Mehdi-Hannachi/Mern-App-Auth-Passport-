@@ -1,21 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-// import { Redirect, useHistory } from "react-router-dom";
 import { login } from "../JS/actions";
 
 const Login = () => {
   const dispatch = useDispatch();
   const isAuth = useSelector((state) => state.userReducer.isAuth);
 
-  // const [token, setToken] = useState();
-
-  // useEffect(() => {
-  //   setToken(localStorage.getItem("token"));
-  // }, []);
-
   const loading = useSelector((state) => state.userReducer.loading);
-  // const history = useHistory();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
@@ -30,9 +22,6 @@ const Login = () => {
     // history.push("/profile");
   };
 
-  // token ? (
-  //   <Redirect to="/profile" />
-  // ) :
   if (isAuth) {
     return <Redirect to="/profile" />;
   }
@@ -53,6 +42,7 @@ const Login = () => {
             <input
               type="text"
               className="form-control"
+              value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
             <span>Your Mail</span>
@@ -63,6 +53,7 @@ const Login = () => {
             <input
               type="password"
               className="form-control"
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
             <span>Your Password</span>

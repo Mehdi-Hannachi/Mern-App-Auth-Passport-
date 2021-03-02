@@ -5,7 +5,8 @@ const SnackBar = () => {
   const { msg, show, status } = useSelector((state) => state.snackBarReducer);
 
   return (
-    show && (
+    <div>
+      show && (
       <div
         style={
           status === "error"
@@ -25,7 +26,8 @@ const SnackBar = () => {
       >
         <p style={{ color: "white" }}> {msg} </p>
       </div>
-    )
+      )
+    </div>
   );
 };
 

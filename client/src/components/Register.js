@@ -1,9 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { register } from "../JS/actions";
+import { register, login } from "../JS/actions";
 import { useHistory } from "react-router-dom";
-// import { Link } from "react-router-dom";
 import "./signup.css";
 
 const Register = () => {
@@ -12,7 +11,6 @@ const Register = () => {
 
   console.log(errors);
 
-  // const user = useSelector((state) => state.userReducer.user);
   const dispatch = useDispatch();
 
   const history = useHistory();
@@ -21,12 +19,6 @@ const Register = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [phoneNumber, setPhoneNumber] = useState();
-
-  // const [token, setToken] = useState();
-
-  // useEffect(() => {
-  //   setToken(localStorage.getItem("token"));
-  // }, []);
 
   const addUser = (e) => {
     e.preventDefault();
@@ -37,16 +29,8 @@ const Register = () => {
     setPhoneNumber("");
     setPassword("");
 
-    // history.push("/profile");
+    history.push("/login");
   };
-
-  //   token ? (
-  //     <Redirect to="/profile" />
-  //   ) :
-
-  // user ? (
-  //   <Redirect to="/login" />
-  // ) : (
 
   return (
     <div>
@@ -81,6 +65,7 @@ const Register = () => {
                 type="text"
                 name="name"
                 id="your_name"
+                value={name}
                 className="input-text"
                 onChange={(e) => setName(e.target.value)}
               />
@@ -91,6 +76,7 @@ const Register = () => {
                 type="text"
                 name="email"
                 id="your_email"
+                value={email}
                 className="input-text"
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -100,7 +86,8 @@ const Register = () => {
               <input
                 type="number"
                 name="phoneNumber"
-                id="your_email"
+                id="your_phoneNumber"
+                value={phoneNumber}
                 className="input-text"
                 onChange={(e) => setPhoneNumber(e.target.value)}
               />
@@ -111,6 +98,7 @@ const Register = () => {
                 type="password"
                 name="password"
                 id="password"
+                value={password}
                 className="input-text"
                 onChange={(e) => setPassword(e.target.value)}
               />

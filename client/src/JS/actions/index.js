@@ -35,10 +35,10 @@ export const register = (newUser) => async (dispatch) => {
     });
   } catch (error) {
     // console.log(error.response);
-    Array.isArray(error.response.data.errors) &&
-      error.response.data.errors.forEach((el) =>
-        dispatch(showSnack(el.msg, "success", 5000))
-      );
+    // Array.isArray(error.response.data.errors) &&
+    //   error.response.data.errors.forEach((el) =>
+    //     dispatch(showSnack(el.msg, "success", 5000))
+    //   );
     dispatch({ type: REGISTER_FAIL, payload: error.response.data });
   }
 };

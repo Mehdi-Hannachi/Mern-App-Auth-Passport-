@@ -4,7 +4,7 @@ import snackBarReducer from "./snackBar";
 
 const rootReducers = combineReducers({
   userReducer,
-  snackBarReducer,
+  // snackBarReducer,
 });
 
 export default rootReducers;

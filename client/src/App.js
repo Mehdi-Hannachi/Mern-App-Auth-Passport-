@@ -10,9 +10,8 @@ import Profile from "./components/Profile";
 import PrivateRoute from "./components/PrivateRoute";
 import SnackBar from "./components/SnackBar";
 const App = () => {
-  // const loading = useSelector((state) => state.userReducer.loading);
+  
   const isAuth = useSelector((state) => state.userReducer.isAuth);
-  // const user = useSelector((state) => state.userReducer.user);
 
   console.log(isAuth, "APP COMPONENT");
 
@@ -30,7 +29,7 @@ const App = () => {
 
         <PrivateRoute exact path="/profile" component={Profile} />
       </Switch>
-      <SnackBar />
+      {/* <SnackBar /> */}
     </div>
   );
 };
