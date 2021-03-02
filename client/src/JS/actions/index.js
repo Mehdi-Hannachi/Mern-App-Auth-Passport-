@@ -11,6 +11,15 @@ import {
 } from "../constants/actionsTypes";
 import axios from "axios";
 
+export const showSnack = (msg, status, delay = 3000) => async (dispatch) => {
+  dispatch({
+    type: "SHOW_SNACKBAR",
+    payload: { msg, status },
+  });
+
+  setTimeout(() => dispatch({ type: "HIDE_SNACKBAR" }), delay);
+};
+
 export const register = (newUser) => async (dispatch) => {
   dispatch({
     type: REGISTER_USER,
@@ -26,8 +35,10 @@ export const register = (newUser) => async (dispatch) => {
     });
   } catch (error) {
     // console.log(error.response);
-
-    error.response.data.errors.map((el) => alert(el.msg));
+    // Array.isArray(error.response.data.errors) &&
+    //   error.response.data.errors.forEach((el) =>
+    //     dispatch(showSnack(el.msg, "success", 5000))
+    //   );
     dispatch({ type: REGISTER_FAIL, payload: error.response.data });
   }
 };
