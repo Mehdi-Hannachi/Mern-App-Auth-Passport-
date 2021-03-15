@@ -1,10 +1,28 @@
 const bcrypt = require("bcryptjs");
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
+
+const path = require("path");
+
+const fs = require("fs");
+
+const multer = require("multer");
 require("dotenv").config({ path: "./config/.env" });
 const secretOrKey = process.env.secretOrKey;
 
 exports.register = async (req, res) => {
+  
+  const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, "uploads");
+    },
+    filename: (req, file, cb) => {
+      cb(null, file.filename + "-" + Date.now());
+    },
+  });
+
+  const upload = multer({ storage: storage });
+
   const { name, email, phoneNumber, password } = req.body;
 
   try {
@@ -19,6 +37,12 @@ exports.register = async (req, res) => {
       email,
       phoneNumber,
       password,
+      img: {
+        data: fs.readFileSync(
+          path.join(__dirname + "/uploads/" + req.file.filename)
+        ),
+        contentType: "image/png"
+      },
     });
 
     // const payload = {
