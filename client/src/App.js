@@ -8,10 +8,9 @@ import { getProfile } from "./JS/actions";
 
 import Profile from "./components/Profile";
 import PrivateRoute from "./components/PrivateRoute";
+// import SnackBar from "./components/SnackBar";
 const App = () => {
-  // const loading = useSelector((state) => state.userReducer.loading);
   const isAuth = useSelector((state) => state.userReducer.isAuth);
-  // const user = useSelector((state) => state.userReducer.user);
 
   console.log(isAuth, "APP COMPONENT");
 
@@ -19,7 +18,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(getProfile());
-  }, [dispatch]);
+  }, [isAuth]);
 
   return (
     <div>
@@ -29,8 +28,12 @@ const App = () => {
 
         <PrivateRoute exact path="/profile" component={Profile} />
       </Switch>
+<<<<<<< HEAD
 
       <Errors />
+=======
+      {/* <SnackBar /> */}
+>>>>>>> 4f455bc2e14d09eef749b0d6c598f9985f15ac16
     </div>
   );
 };
