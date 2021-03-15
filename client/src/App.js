@@ -8,9 +8,8 @@ import { getProfile } from "./JS/actions";
 
 import Profile from "./components/Profile";
 import PrivateRoute from "./components/PrivateRoute";
-import SnackBar from "./components/SnackBar";
+// import SnackBar from "./components/SnackBar";
 const App = () => {
-  
   const isAuth = useSelector((state) => state.userReducer.isAuth);
 
   console.log(isAuth, "APP COMPONENT");
@@ -19,7 +18,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(getProfile());
-  }, [dispatch]);
+  }, [isAuth]);
 
   return (
     <div>

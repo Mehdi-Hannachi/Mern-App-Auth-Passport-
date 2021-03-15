@@ -1,7 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import "./profile.css";
 
 const Profile = () => {
+  const user = useSelector((state) => state.userReducer.user);
+
   return (
     <div className="container emp-profile">
       <form method="post">
@@ -20,7 +23,7 @@ const Profile = () => {
           </div>
           <div className="col-md-6">
             <div className="profile-head">
-              <h5>Kshiti Ghelani</h5>
+              <h5>{user.name}</h5>
               <h6>Web Developer and Designer</h6>
               <p className="proile-rating">
                 RANKINGS : <span>8/10</span>
@@ -96,7 +99,7 @@ const Profile = () => {
               >
                 <div className="row">
                   <div className="col-md-6">
-                    <label>User Id</label>
+                    <label>{user._id}</label>
                   </div>
                   <div className="col-md-6">
                     <p>Kshiti123</p>
@@ -107,7 +110,7 @@ const Profile = () => {
                     <label>Name</label>
                   </div>
                   <div className="col-md-6">
-                    <p>Kshiti Ghelani</p>
+                    <p>{user.name}</p>
                   </div>
                 </div>
                 <div className="row">
@@ -115,7 +118,7 @@ const Profile = () => {
                     <label>Email</label>
                   </div>
                   <div className="col-md-6">
-                    <p>kshitighelani@gmail.com</p>
+                    <p>{user.email}</p>
                   </div>
                 </div>
                 <div className="row">
@@ -123,7 +126,7 @@ const Profile = () => {
                     <label>Phone</label>
                   </div>
                   <div className="col-md-6">
-                    <p>123 456 7890</p>
+                    <p>{user.phoneNumber}</p>
                   </div>
                 </div>
                 <div className="row">
